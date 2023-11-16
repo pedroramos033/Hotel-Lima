@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container mt-4">
+		<div class="col-sm-6">
+			<form th:action="@{/saveReserva}" th:object=${reserva} method="POST">
+				<div class="card">
+					<div class="card-header">
+						<H3>Modulo Reserva</H3>
+					</div>
+					<div class="card-body"></div>	
+					<div class="form-group">
+							<label>Nro Reserva</label>
+							<input th:field="*{nro_reserva}" type="text" readonly="readonly" value="readonly" class="form-control"/>
+						</div>			
+						<div class="form-group">
+							<label>Fecha Reserva</label>
+							<input th:field="*{fecha_reserva}" type="date" data-provide="datepicker" class="form-control"/>
+						</div>
+						<div class="form-group">
+							<label>Cantidad de Personas</label>
+							<input th:field="*{cant_personas}" type="text" class="form-control"/>
+						</div>
+						<div class="form-group">
+							<label>Cantidad de Dias</label>
+							<input th:field="*{cant_dias}" type="text" class="form-control"/>
+						</div>
+						<div class="form-group">
+						<label>Nro Habitacion</label>
+						<select th:field="*{nro_habi}" class="form-control">
+							<option th:each="habitacion : ${habitaciones}" th:value="${habitacion.nro_habi}" th:text="${habitacion.nro_habi}">Numero de Habitacion</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label>Nombre de Huesped</label>
+						<select th:field="*{id_huesped}" class="form-control">
+							<option th:each="huesped : ${huespeds}" th:value="${huesped.id_huesped}" th:text="${huesped.nombre}">Nombre del Huesped</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label>Nombre de Empleado</label>
+						<select th:field="*{id_emp}" class="form-control">
+							<option th:each="empleado : ${empleados}" th:value="${empleado.id_emp}" th:text="${empleado.nombre_emp}">Nombre del Empleado</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label>Nombre de Servicio</label>
+						<select th:field="*{id_servicio}" class="form-control">
+							<option th:each="servicio: ${servicios}" th:value="${servicio.id_servicio}" th:text="${servicio.nombre}">Nombre del Servicio</option>
+						</select>
+					</div>
+					<div class="form-group">
+							<label>Estado</label>
+							<input th:field="*{estado_reserva}" type="text" class="form-control"/>
+						</div>
+					<div class="card-footer">
+   					 <input type="submit" value="Guardar" class="btn btn-success" onclick="alert('Se Guardó Correctamente')"/>
+    					<a th:href="@{/listarServicio}" class="btn btn-primary">Regresar</a>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Huespedes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-dfNtP91DycuLsSKQ1zpL9d5Dk7v8hsjNWTlHiDzbT9zS1N7gO2gBydAVvcKA4T0Q" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Agrega un color de fondo a la página */
+        }
+
+        .container {
+            margin-top: 50px; /* Ajusta el margen superior para centrar la tabla */
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <h2 class="text-center mb-4">Lista de Huespedes</h2>
+        <div class="text-end">
+            <a th:href="@{/newHuesped}" class="btn btn-primary">Nuevo</a>
+        </div>
+        <br>
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Id Huesped</th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>Dirección</th>
+                    <th>Email</th>
+                    <th>Sexo</th>
+                    <th>Edad</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="huesped: ${huespeds}">
+                    <td th:text="${huesped.Id_huesped}"></td>
+                    <td th:text="${huesped.nombre}"></td>
+                    <td th:text="${huesped.apellido}"></td>
+                    <td th:text="${huesped.direccion}"></td>
+                    <td th:text="${huesped.email}"></td>
+                    <td th:text="${huesped.sexo}"></td>
+                    <td th:text="${huesped.edad}"></td>
+                    <td>
+                        <a th:href="@{/editarHuesped/}+${huesped.Id_huesped}" class="btn btn-warning">
+                            <i class="bi bi-pencil"></i>
+                        </a>
+                        <a th:href="@{/eliminarHuesped/}+${huesped.Id_huesped}" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar este huésped?')">
+                            <i class="bi bi-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-LC/fO7oFlbRU5P5a5h8e0QqDnbS/vUc9bKX6WqbDwO4c5G5F5Fs3UcGnErw9t6bR" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-tyjrMII4H9pwZ8nI/6vLGEff6rF5Dc9oBWzavKOTvQe098S6E5Ko5Fuf0lr5F5tP" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Usuarios</title>
+  <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+  <link rel="stylesheet" th:href="@{css/style.css}">
+</head>
+<body>
+  <div class="container" id="container">
+
+	<div class="form-container register-container" th:if=${param.exito}>
+		<div class="alert alert-info">Se ha registrado exitosamente a
+			la aplicación</div>
+		<form th:action="@{/registro}" method="post" th:object="${usuario}">
+			<h1>Register hire.</h1>
+			<div class="form-group">
+				<label class="control-label" for="apellido">Nombre: </label>
+				<input id="nombre" type="text" class="form-control" th:field="*{nombre}" required autofocus="autofocus">
+			</div>
+			<div class="form-group">
+				<label class="control-label" for="apellido">Apellido : </label> 
+				<input id="apellido" class="form-control" th:field="*{apellido}" required autofocus="autofocus">
+			</div>
+	
+			<div class="form-group">
+				<label class="control-label" for="email">Email : </label> 
+				<input id="email" type="email" class="form-control" th:field="*{email}" required autofocus="autofocus">
+			</div>
+	
+			<div class="form-group">
+				<label class="control-label" for="password">Password : </label> 
+				<input type="password" id="password" class="form-control" th:field="*{password}" required autofocus="autofocus">
+			</div>
+			<div class="form-group">
+				<button type="submit" class="btn btn-success">Registrar</button>
+			</div>button>Register</button>
+        <span>Si estas registrado usa tu cuenta</span>
+        <div class="social-container">
+          <a href="#" class="social"><i class="lni lni-facebook-fill"></i></a>
+          <a href="#" class="social"><i class="lni lni-google"></i></a>
+          <a href="#" class="social"><i class="lni lni-linkedin-original"></i></a>
+        </div>
+      </form>
+    </div>
+
+    <div class="form-container login-container">
+      <form action="#">
+        <h1>Login hire.</h1>
+        <input type="email" placeholder="Email">
+        <input type="password" placeholder="Password">
+        <div class="content">
+          <div class="checkbox">
+            <input type="checkbox" name="checkbox" id="checkbox">
+            <label>Remember me</label>
+          </div>
+          <div class="pass-link">
+            <a href="#">Forgot password?</a>
+          </div>
+        </div>
+        <button>Login</button>
+        <span>or use your account</span>
+        <div class="social-container">
+          <a href="#" class="social"><i class="lni lni-facebook-fill"></i></a>
+          <a href="#" class="social"><i class="lni lni-google"></i></a>
+          <a href="#" class="social"><i class="lni lni-linkedin-original"></i></a>
+        </div>
+      </form>
+    </div>
+
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          <h1 class="title">Hello <br> friends</h1>
+          <p>if Yout have an account, login here and have fun</p>
+          <button class="ghost" id="login">Login
+            <i class="lni lni-arrow-left login"></i>
+          </button>
+        </div>
+        <div class="overlay-panel overlay-right">
+          <h1 class="title">Start yout <br> journy now</h1>
+          <p>if you don't have an account yet, join us and start your journey.</p>
+          <button class="ghost" id="register">Register
+            <i class="lni lni-arrow-right register"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+	  const registerButton = document.getElementById("register");
+const loginButton = document.getElementById("login");
+const container = document.getElementById("container");
+
+registerButton.addEventListener("click", () => {
+  container.classList.add("right-panel-active");
+});
+
+loginButton.addEventListener("click", () => {
+  container.classList.remove("right-panel-active");
+});
+  </script>
+
+</body>
+</html>
