@@ -10,4 +10,5 @@ public interface IservicioService {
 	public Optional<Servicio>listarId(int Id_servicio);
 	public int Guardar(Servicio s);
 	public void Borrar(int Id_servicio);
+	public Servicio obtenerServicioPorId(int Id_servicio);
 }

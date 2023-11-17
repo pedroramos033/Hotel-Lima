@@ -1,12 +1,16 @@
 package com.hotel.demo.modelo;
 import java.sql.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 @Entity
 @Table(name = "tb_reserva")
@@ -24,7 +28,8 @@ public class Reserva {
 	private String estado_reserva;
 	
 	public Reserva() {
-		super();
+		this.detallesServicio = new HashSet<>();
+		
 	}
 
 	
@@ -138,6 +143,9 @@ public class Reserva {
 	@ManyToOne
 	@JoinColumn(name="id_servicio", insertable=false,updatable=false)
 	private Servicio objServicio;
+	
+	@OneToMany(mappedBy = "objReserva", cascade = CascadeType.ALL)
+    private Set<Detalle_Servicio> detallesServicio = new HashSet<>();
 
 	public Habitacion getObjHabitacion() {
 		return objHabitacion;
@@ -169,6 +177,18 @@ public class Reserva {
 
 	public void setObjServicio(Servicio objServicio) {
 		this.objServicio = objServicio;
+	}
+
+
+
+	public Set<Detalle_Servicio> getDetallesServicio() {
+		return detallesServicio;
+	}
+
+
+
+	public void setDetallesServicio(Set<Detalle_Servicio> detallesServicio) {
+		this.detallesServicio = detallesServicio;
 	}
 	
 	

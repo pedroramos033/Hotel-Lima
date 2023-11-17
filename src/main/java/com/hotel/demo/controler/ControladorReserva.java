@@ -15,6 +15,7 @@ import com.hotel.demo.interfacesService.IhabitacionService;
 import com.hotel.demo.interfacesService.IhuespedService;
 import com.hotel.demo.interfacesService.IreservaService;
 import com.hotel.demo.interfacesService.IservicioService;
+
 import com.hotel.demo.modelo.Empleado;
 import com.hotel.demo.modelo.Habitacion;
 import com.hotel.demo.modelo.Huesped;
@@ -55,7 +56,8 @@ public class ControladorReserva {
 		return "NuevaReserva";
 	}
 	@PostMapping("/saveReserva")
-	public String guardar(@Validated Reserva r, Model model) {
+	public String guardar(@Validated Reserva r, Model model) {    
+		
 		service.Guardar(r);
 		return "redirect:/listarReserva";
 	}
