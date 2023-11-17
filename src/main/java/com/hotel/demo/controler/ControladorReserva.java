@@ -78,4 +78,14 @@ public class ControladorReserva {
 		service.Borrar(Nro_reserva);
 		return "redirect:/listarReserva";
 	}
+	@GetMapping("/index1")
+	public String index1 (){
+		
+		return "index1";
+	}
+	@GetMapping("/index")
+	public String index (){
+		
+		return "index";
+	}
 }

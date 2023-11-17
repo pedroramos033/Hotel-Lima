@@ -1,72 +1,615 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" class="no-js" lang="zxx">
+
 <head>
-    <meta charset="ISO-8859-1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <title>Principal</title>
-    <!--<style>
-        
-
-        .iframe-container {
-            height: calc(100vh - 56px); /* Altura total menos la altura de la barra de navegación */
-            overflow: hidden; /* Oculta el desbordamiento del contenido */
-        }
-
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none; /* Elimina el borde del iframe */
-        }
-    </style>-->
-   
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Montana</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="manifest" href="site.webmanifest"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <!-- Place favicon.ico in the root directory -->
+    <!-- CSS here -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <link rel="stylesheet" href="css/nice-select.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/gijgo.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/slicknav.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
 </head>
+
 <body>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-info">
-        <h1 class="navbar-brand" href="#">Hotel</h1>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link">Home<span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/listarHuesped" target="miContenedor">Huesped</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/listarHabitacion" target="miContenedor">Habitaciones</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/listarEmpleado" target="miContenedor">Empleado</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/listarServicio" target="miContenedor">Servicios</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/listarReserva" target="miContenedor">Reserva</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Login.html" >Login</a>
-                </li>
-            </ul>
+    <!-- header-start -->
+    <header>
+        <div class="header-area ">
+            <div id="sticky-header" class="main-header-area">
+                <div class="container-fluid p-0">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col-xl-5 col-lg-6">
+                            <div class="main-menu  d-none d-lg-block">
+                                <nav>
+                                    <ul id="navigation">
+                                        <li><a class="active" href="index.html">home</a></li>
+                                        <li><a href="rooms.html">rooms</a></li>
+                                        <li><a href="about.html">About</a></li>
+                                        <li><a href="#">blog <i class="ti-angle-down"></i></a>
+                                            <ul class="submenu">
+                                                <li><a href="blog.html">blog</a></li>
+                                                <li><a href="single-blog.html">single-blog</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">pages <i class="ti-angle-down"></i></a>
+                                            <ul class="submenu">
+                                                <li><a href="elements.html">elements</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-2">
+                            <div class="logo-img">
+                                <a href="index.html">
+                                    <img src="img/logo.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-5 col-lg-4 d-none d-lg-block">
+                            <div class="book_room">
+                                <div class="socail_links">
+                                    <ul>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-facebook-square"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-twitter"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-instagram"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="book_btn d-none d-lg-block">
+                                    <a class="nav-link" href="/index1">Reservar Ahora</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </nav>
-            <main role="main" class="col-md-10 ml-sm-auto col-lg-10 px-4" style="height: 100vh;">
-                
-               
-                     <iframe name="miContenedor" frameborder="0" class="col-md-10 ml-sm-auto col-lg-10 px-4" style="height: 100vh;"></iframe>
-                
-            </main>
-        
+    </header>
+    <!-- header-end -->
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <!-- slider_area_start -->
+    <div class="slider_area">
+        <div class="slider_active owl-carousel">
+            <div class="single_slider d-flex align-items-center justify-content-center slider_bg_1">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="slider_text text-center">
+                                <h3>Hotel Lima Resort</h3>
+                                <p>Desbloquea nuevas experiencias</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="single_slider  d-flex align-items-center justify-content-center slider_bg_2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="slider_text text-center">
+                                <h3>La Vida es Bella</h3>
+                                <p>Desbloquea nuevas experiencias</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="single_slider d-flex align-items-center justify-content-center slider_bg_1">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="slider_text text-center">
+                                <h3>Hotel Lima Resort</h3>
+                                <p>Desbloquea nuevas experiencias</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="single_slider  d-flex align-items-center justify-content-center slider_bg_2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="slider_text text-center">
+                                <h3>La Vida es Bella</h3>
+                                <p>Desbloquea nuevas experiencias</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- slider_area_end -->
+
+    <!-- about_area_start -->
+    <div class="about_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-5 col-lg-5">
+                    <div class="about_info">
+                        <div class="section_title mb-20px">
+                            <span>Sobre Nosotros</span>
+                            <h3>Un hotel de lujo 
+								con la naturaleza</h3>
+                        </div>
+                        <p>Acepta ser nuestro huesped y podras tener al alcance todos los servicios que necesites.</p>
+                        <a href="#" class="line-button">Leer Mas</a>
+                    </div>
+                </div>
+                <div class="col-xl-7 col-lg-7">
+                    <div class="about_thumb d-flex">
+                        <div class="img_1">
+                            <img src="img/about/about_1.png" alt="">
+                        </div>
+                        <div class="img_2">
+                            <img src="img/about/about_2.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- about_area_end -->
+
+    <!-- offers_area_start -->
+    <div class="offers_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="section_title text-center mb-100">
+                        <span>Nuestras Ofertas</span>
+                        <h3>Ofertas en Curso</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-4 col-md-4">
+                    <div class="single_offers">
+                        <div class="about_thumb">
+                            <img src="img/offers/1.png" alt="">
+                        </div>
+                        <h3>Hasta 35% de ahorro<br>
+                            en Habitaciones y Suites</h3>
+                        <ul>
+                            <li>Condición de lujo</li>
+                            <li>Tamaño 3 adultos y 2 niños</li>
+                            <li>Lado con vista al mar</li>
+                        </ul>
+                        <a href="#" class="book_now">Reservar Ahora</a>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-4">
+                    <div class="single_offers">
+                        <div class="about_thumb">
+                            <img src="img/offers/2.png" alt="">
+                        </div>
+                        <h3>Hasta 35% de ahorro<br>
+                            en Habitaciones y Suites</h3>
+                        <ul>
+                            <li>Condición de lujo</li>
+                            <li>Tamaño 3 adultos y 2 niños</li>
+                            <li>Lado con vista al mar</li>
+                        </ul>
+                        <a href="#" class="book_now">Reservar Ahora</a>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-4">
+                    <div class="single_offers">
+                        <div class="about_thumb">
+                            <img src="img/offers/3.png" alt="">
+                        </div>
+                        <h3>Hasta 35% de ahorro<br>
+                            en Habitaciones y Suites</h3>
+                        <ul>
+                            <li>Condición de lujo</li>
+                            <li>Tamaño 3 adultos y 2 niños</li>
+                            <li>Lado con vista al mar</li>
+                        </ul>
+                        <a href="#" class="book_now">Reservar Ahora</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- offers_area_end -->
+
+    <!-- video_area_start -->
+    <div class="video_area video_bg overlay">
+        <div class="video_area_inner text-center">
+            <span>Hotel Lima Resort</span>
+            <h3>Relájate y disfruta de tus<br>
+                Vacaciones </h3>
+            <a href="https://www.youtube.com/watch?v=vLnPwxZdW4Y" class="video_btn popup-video">
+                <i class="fa fa-play"></i>
+            </a>
+        </div>
+    </div>
+    <!-- video_area_end -->
+
+    <!-- about_area_start -->
+    <div class="about_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-7 col-lg-7">
+                    <div class="about_thumb2 d-flex">
+                        <div class="img_1">
+                            <img src="img/about/1.png" alt="">
+                        </div>
+                        <div class="img_2">
+                            <img src="img/about/2.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-5 col-lg-5">
+                    <div class="about_info">
+                        <div class="section_title mb-20px">
+                            <span>Deliciosa Comida</span>
+                            <h3>Servimos fresca y<br>
+                                Deliciosa Comida</h3>
+                        </div>
+                        <p>Nuestros servicios incluyen preparacion de comidas las 24/7.</p>
+                        <a href="#" class="line-button">Leer Mas</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- about_area_end -->
+
+    <!-- features_room_startt -->
+    <div class="features_room">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="section_title text-center mb-100">
+                        <span>Habitaciones destacadas</span>
+                        <h3>Elija la mejor habitacion</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="rooms_here">
+            <div class="single_rooms">
+                <div class="room_thumb">
+                    <img src="img/rooms/1.png" alt="">
+                    <div class="room_heading d-flex justify-content-between align-items-center">
+                        <div class="room_heading_inner">
+                            <span>Desde $250/la noche</span>
+                            <h3>Habitacion Superior</h3>
+                        </div>
+                        <a href="#" class="line-button">book now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="single_rooms">
+                <div class="room_thumb">
+                    <img src="img/rooms/2.png" alt="">
+                    <div class="room_heading d-flex justify-content-between align-items-center">
+                        <div class="room_heading_inner">
+                            <span>Desde $250/la noche</span>
+                            <h3>Habitacion de lujo</h3>
+                        </div>
+                        <a href="#" class="line-button">book now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="single_rooms">
+                <div class="room_thumb">
+                    <img src="img/rooms/3.png" alt="">
+                    <div class="room_heading d-flex justify-content-between align-items-center">
+                        <div class="room_heading_inner">
+                            <span>Desde $250/la noche</span>
+                            <h3>Signature Room</h3>
+                        </div>
+                        <a href="#" class="line-button">book now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="single_rooms">
+                <div class="room_thumb">
+                    <img src="img/rooms/4.png" alt="">
+                    <div class="room_heading d-flex justify-content-between align-items-center">
+                        <div class="room_heading_inner">
+                            <span>Desde $250/la noche</span>
+                            <h3>Habitacion Matrimonial</h3>
+                        </div>
+                        <a href="#" class="line-button">book now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- features_room_end -->
+
+    <!-- forQuery_start -->
+    <div class="forQuery">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-10 offset-xl-1 col-md-12">
+                    <div class="Query_border">
+                        <div class="row align-items-center justify-content-center">
+                            <div class="col-xl-6 col-md-6">
+                                <div class="Query_text">
+                                    <p>¿Para Reserva o Consulta?</p>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-md-6">
+                                <div class="phone_num">
+                                    <a href="#" class="mobile_no">+51 576 377 4789</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- forQuery_end-->
+
+    <!-- instragram_area_start -->
+    <div class="instragram_area">
+        <div class="single_instagram">
+            <img src="img/instragram/1.png" alt="">
+            <div class="ovrelay">
+                <a href="#">
+                    <i class="fa fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+        <div class="single_instagram">
+            <img src="img/instragram/2.png" alt="">
+            <div class="ovrelay">
+                <a href="#">
+                    <i class="fa fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+        <div class="single_instagram">
+            <img src="img/instragram/3.png" alt="">
+            <div class="ovrelay">
+                <a href="#">
+                    <i class="fa fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+        <div class="single_instagram">
+            <img src="img/instragram/4.png" alt="">
+            <div class="ovrelay">
+                <a href="#">
+                    <i class="fa fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+        <div class="single_instagram">
+            <img src="img/instragram/5.png" alt="">
+            <div class="ovrelay">
+                <a href="#">
+                    <i class="fa fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- instragram_area_end -->
+
+    <!-- footer -->
+    <footer class="footer">
+        <div class="footer_top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-3 col-md-6 col-lg-3">
+                        <div class="footer_widget">
+                            <h3 class="footer_title">
+                                Direccion
+                            </h3>
+                            <p class="footer_text"> Av Peter Castle 666, Lima Peru</p>
+                            <a href="#" class="line-button">Conseguir Direccion</a>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6 col-lg-3">
+                        <div class="footer_widget">
+                            <h3 class="footer_title">
+                                Reservation
+                            </h3>
+                            <p class="footer_text">+51 123 456 789 <br>
+                                reservation@hotellimaresort.com</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-6 col-lg-2">
+                        <div class="footer_widget">
+                            <h3 class="footer_title">
+                                Navigation
+                            </h3>
+                            <ul>
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">Rooms</a></li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">News</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-6 col-lg-4">
+                        <div class="footer_widget">
+                            <h3 class="footer_title">
+                                Boletin informativo
+                            </h3>
+                            <form action="#" class="newsletter_form">
+                                <input type="text" placeholder="Introduce tu correo">
+                                <button type="submit">Enviar boletin</button>
+                            </form>
+                            <p class="newsletter_text">Suscríbete al boletín para recibir actualizaciones</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copy-right_text">
+            <div class="container">
+                <div class="footer_border"></div>
+                <div class="row">
+                    <div class="col-xl-8 col-md-7 col-lg-9">
+                        <p class="copy_right">
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved |
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </div>
+                    <div class="col-xl-4 col-md-5 col-lg-3">
+                        <div class="socail_links">
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-facebook-square"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-instagram"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- link that opens popup -->
+
+    <!-- form itself end-->
+        <form id="test-form" class="white-popup-block mfp-hide">
+                <div class="popup_box ">
+                        <div class="popup_inner">
+                            <h3>Check Availability</h3>
+                            <form action="#">
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <input id="datepicker" placeholder="Check in date">
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <input id="datepicker2" placeholder="Check out date">
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <select class="form-select wide" id="default-select" >
+                                            <option data-display="Adult">1</option>
+                                            <option value="1">2</option>
+                                            <option value="2">3</option>
+                                            <option value="3">4</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <select class="form-select wide" id="default-select" >
+                                            <option data-display="Children">1</option>
+                                            <option value="1">2</option>
+                                            <option value="2">3</option>
+                                            <option value="3">4</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-xl-12">
+                                        <select class="form-select wide" id="default-select" >
+                                            <option data-display="Room type">Room type</option>
+                                            <option value="1">Laxaries Rooms</option>
+                                            <option value="2">Deluxe Room</option>
+                                            <option value="3">Signature Room</option>
+                                            <option value="4">Couple Room</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-xl-12">
+                                        <button type="submit" class="boxed-btn3">Check Availability</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+            </form>
+    <!-- form itself end -->
+
+    <!-- JS here -->
+    <script src="js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/isotope.pkgd.min.js"></script>
+    <script src="js/ajax-form.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/scrollIt.js"></script>
+    <script src="js/jquery.scrollUp.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/nice-select.min.js"></script>
+    <script src="js/jquery.slicknav.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/gijgo.min.js"></script>
+
+    <!--contact js-->
+    <script src="js/contact.js"></script>
+    <script src="js/jquery.ajaxchimp.min.js"></script>
+    <script src="js/jquery.form.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/mail-script.js"></script>
+
+    <script src="js/main.js"></script>
+    <script>
+        $('#datepicker').datepicker({
+            iconsLibrary: 'fontawesome',
+            icons: {
+             rightIcon: '<span class="fa fa-caret-down"></span>'
+         }
+        });
+        $('#datepicker2').datepicker({
+            iconsLibrary: 'fontawesome',
+            icons: {
+             rightIcon: '<span class="fa fa-caret-down"></span>'
+         }
+
+        });
+    </script>
+
+
+
 </body>
+
 </html>
