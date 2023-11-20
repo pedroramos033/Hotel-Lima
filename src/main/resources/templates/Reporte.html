@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div class="form-group">
+    <label>Datos de la Reserva</label>
+    <select id="nro_reserva" th:field="*{nro_reserva}" class="form-control">
+        <option th:each="reserva : ${reservas}" th:value="${reserva.nro_reserva}">
+            <!-- Muestra los datos de la reserva, habitación y servicio -->
+            <span th:text="${'Nro Reserva: ' + reserva.nro_reserva +
+                ', Habitación: ' + reserva.objHabitacion.descripcion +
+                ', Precio Habitación: ' + reserva.objHabitacion.precio_habi +
+                ', Servicio: ' + reserva.objServicio.nombre +
+                ', Precio Servicio: ' + reserva.objServicio.precio +
+                ', Días: ' + reserva.cant_dias}"></span>
+        </option>
+    </select>
+</div>
+ <button onclick="imprimir()">Imprimir</button>
+
+    <script>
+        function imprimir() {
+            window.print();
+        }
+    </script>
+</body>
+</html>

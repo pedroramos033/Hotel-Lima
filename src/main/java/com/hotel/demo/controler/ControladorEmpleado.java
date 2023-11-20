@@ -34,13 +34,13 @@ public class ControladorEmpleado {
 		return "redirect:/listarEmpleado";
 	}
 	@GetMapping("/editarEmpleado/{Id_empleado}")
-	public String editar(@PathVariable int Id_empleado, Model model) {
+	public String editar(@PathVariable Integer Id_empleado, Model model) {
 		Optional<Empleado>empleado=service.listarId(Id_empleado);
 		model.addAttribute("empleado", empleado);
 		return "NuevoEmpleado";
 	}
 	@GetMapping("/eliminarEmpleado/{Id_empleado}")
-	public String delete(Model model, @PathVariable int Id_empleado) {
+	public String delete(Model model, @PathVariable Integer Id_empleado) {
 		service.Borrar(Id_empleado);
 		return "redirect:/listarEmpleado";
 	}

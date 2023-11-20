@@ -4,7 +4,7 @@
     <meta charset="ISO-8859-1">
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Montana</title>
+    <title>Hotel Lima</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- <link rel="manifest" href="site.webmanifest"> -->
@@ -49,19 +49,27 @@
                                 <nav>
                                     <ul id="navigation">
                                         <li><a class="active" href="/index">home</a></li>
-                                        <li><a href="/listarReserva" target="miContenedor">Reserva</a></li>                                        
+                                        <li><a href="#">Reserva <i class="ti-angle-down"></i></a>
+											<ul class="submenu">
+                                                <li><a href="/listarReserva" target="miContenedor">Reserva</a></li>
+                                                <li><a href="/newReservaRCliente" target="miContenedor">Reserva Cliente</a></li>
+                                            </ul>
+                                        </li>
+                                          
+                                         <li><a href="/listarRegistroPago" target="miContenedor">Registrar Pago</a></li>                                       
                                         <li><a href="#">Mantenimiento <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
                                                 <li><a href="/listarHabitacion" target="miContenedor">Habitaciones</a></li>
                                         		<li><a href="/listarHuesped" target="miContenedor">Huesped</a></li>
                                         		<li><a href="/listarEmpleado" target="miContenedor">Empleado</a></li>
                                         		<li><a href="/listarServicio" target="miContenedor">Servicios</a></li>
-                                        		<li><a href="/listarDetalleServicio" target="miContenedor"> Detalle Servicio</a></li>
+                                        		
                                             </ul>
                                         </li>
-                                        <li><a href="#">pages <i class="ti-angle-down"></i></a>
-                                            <ul class="submenu">
-                                                <li><a href="elements.html">elements</a></li>
+                                       <li><a href="#">Detalle <i class="ti-angle-down"></i></a>
+											<ul class="submenu">
+                                                <li><a href="/listarDetalleServicio" target="miContenedor"> Detalle Servicio</a></li>
+                                        		<li><a href="/listarDetalleReserva" target="miContenedor"> Detalle Reserva</a></li>
                                             </ul>
                                         </li>
                                         <li><a href="contact.html">Contact</a></li>
@@ -72,7 +80,7 @@
                         <div class="col-xl-2 col-lg-2">
                             <div class="logo-img">
                                 <a href="index.html">
-                                    <img src="img/logo.png" alt="">
+                                    <img src="img/logo.jpg" alt="">
                                 </a>
                             </div>
                         </div>

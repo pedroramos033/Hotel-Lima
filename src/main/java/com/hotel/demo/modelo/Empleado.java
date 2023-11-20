@@ -10,7 +10,7 @@ import jakarta.persistence.Table;
 public class Empleado {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_emp;
+	private Integer id_emp;
 	private String nombre_emp;
 	private String apellido_emp;
 	private String sexo_emp;
@@ -20,7 +20,7 @@ public class Empleado {
 		super();
 	}
 
-	public Empleado(int id_emp, String nombre_emp, String apellido_emp, String sexo_emp, String cargo_emp) {
+	public Empleado(Integer id_emp, String nombre_emp, String apellido_emp, String sexo_emp, String cargo_emp) {
 		super();
 		this.id_emp = id_emp;
 		this.nombre_emp = nombre_emp;
@@ -29,11 +29,11 @@ public class Empleado {
 		this.cargo_emp = cargo_emp;
 	}
 
-	public int getId_emp() {
+	public Integer getId_emp() {
 		return id_emp;
 	}
 
-	public void setId_emp(int id_emp) {
+	public void setId_emp(Integer id_emp) {
 		this.id_emp = id_emp;
 	}
 

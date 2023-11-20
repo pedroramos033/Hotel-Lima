@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,19 +24,20 @@ public class Reserva {
 	private int cant_dias;
 	private int nro_habi;
 	private int id_huesped;
-	private int id_emp;
+	@Column(nullable = true)
+	private Integer id_emp;
 	private int id_servicio;
 	private String estado_reserva;
 	
 	public Reserva() {
 		this.detallesServicio = new HashSet<>();
-		
+		this.detallesReserva = new HashSet<>();
 	}
 
 	
 
 	public Reserva(int nro_reserva, Date fecha_reserva, int cant_personas, int cant_dias, int nro_habi, int id_huesped,
-			int id_emp, int id_servicio, String estado_reserva) {
+			Integer id_emp, int id_servicio, String estado_reserva) {
 		super();
 		this.nro_reserva = nro_reserva;
 		this.fecha_reserva = fecha_reserva;
@@ -46,6 +48,19 @@ public class Reserva {
 		this.id_emp = id_emp;
 		this.id_servicio = id_servicio;
 		this.estado_reserva = estado_reserva;
+	}
+
+
+
+	public Reserva(int nro_reserva, Date fecha_reserva, int cant_personas, int cant_dias, int nro_habi,
+			int id_huesped) {
+		super();
+		this.nro_reserva = nro_reserva;
+		this.fecha_reserva = fecha_reserva;
+		this.cant_personas = cant_personas;
+		this.cant_dias = cant_dias;
+		this.nro_habi = nro_habi;
+		this.id_huesped = id_huesped;
 	}
 
 
@@ -98,13 +113,19 @@ public class Reserva {
 		this.id_huesped = id_huesped;
 	}
 
-	public int getId_emp() {
+	
+
+	public Integer getId_emp() {
 		return id_emp;
 	}
 
-	public void setId_emp(int id_emp) {
+
+
+	public void setId_emp(Integer id_emp) {
 		this.id_emp = id_emp;
 	}
+
+
 
 	public int getId_servicio() {
 		return id_servicio;
@@ -137,7 +158,7 @@ public class Reserva {
 	private Huesped objHuesped;
 	
 	@ManyToOne
-	@JoinColumn(name="id_emp", insertable=false,updatable=false)
+	@JoinColumn(name = "id_emp", referencedColumnName = "id_emp", insertable = false, updatable = false)
 	private Empleado objEmpleado;
 	
 	@ManyToOne
@@ -146,6 +167,9 @@ public class Reserva {
 	
 	@OneToMany(mappedBy = "objReserva", cascade = CascadeType.ALL)
     private Set<Detalle_Servicio> detallesServicio = new HashSet<>();
+    
+    @OneToMany(mappedBy = "objReserva", cascade = CascadeType.ALL)
+    private Set<Detalle_Reserva> detallesReserva = new HashSet<>();
 
 	public Habitacion getObjHabitacion() {
 		return objHabitacion;
@@ -189,6 +213,18 @@ public class Reserva {
 
 	public void setDetallesServicio(Set<Detalle_Servicio> detallesServicio) {
 		this.detallesServicio = detallesServicio;
+	}
+
+
+
+	public Set<Detalle_Reserva> getDetallesReserva() {
+		return detallesReserva;
+	}
+
+
+
+	public void setDetallesReserva(Set<Detalle_Reserva> detallesReserva) {
+		this.detallesReserva = detallesReserva;
 	}
 	
 	

@@ -19,7 +19,7 @@ public class EmpleadoService implements IempleadoService {
 	}
 
 	@Override
-	public Optional<Empleado> listarId(int Id_emp) {
+	public Optional<Empleado> listarId(Integer Id_emp) {
 		// TODO Auto-generated method stub
 		return data.findById(Id_emp);
 	}
@@ -36,7 +36,7 @@ public class EmpleadoService implements IempleadoService {
 	}
 
 	@Override
-	public void Borrar(int Id_emp) {
+	public void Borrar(Integer Id_emp) {
 		// TODO Auto-generated method stub
 		data.deleteById(Id_emp);
 	}

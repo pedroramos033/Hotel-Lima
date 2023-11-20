@@ -3,8 +3,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.transaction.Transactional;
 @Entity
 @Table(name = "tb_habitacion")
 public class Habitacion {
@@ -65,6 +67,29 @@ public class Habitacion {
 
 	public void setPrecio_habi(int precio_habi) {
 		this.precio_habi = precio_habi;
+	}
+	@Transactional
+	public void reservar() {
+		setEstado("NoDisponible") ;
+    }
+
+
+	@Transactional
+	public void disponibilizar() {
+		setEstado("Disponible") ;
+	}
+	@ManyToOne 
+	  @JoinColumn(name="nro_reserva", insertable=false,updatable=false)
+	  private Reserva objReserva;
+
+	public Reserva getObjReserva() {
+		return objReserva;
+	}
+
+
+
+	public void setObjReserva(Reserva objReserva) {
+		this.objReserva = objReserva;
 	}
 	
 	

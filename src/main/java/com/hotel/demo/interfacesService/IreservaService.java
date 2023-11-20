@@ -9,4 +9,7 @@ public interface IreservaService {
 	public Optional<Reserva>listarNro(int nro_reserva);
 	public int Guardar(Reserva r);
 	public void Borrar(int nro_reserva);
+	public Reserva GuardarR(Reserva r);
+	public Reserva crearReservaConDetalle(Reserva reserva);
+	public double obtenerPrecioServicioPorId(int idServicio);
 }

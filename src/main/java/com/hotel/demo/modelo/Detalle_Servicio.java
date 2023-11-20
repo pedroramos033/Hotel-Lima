@@ -8,7 +8,8 @@
   
   @Entity
   
-  @Table(name = "detalle_servicio") public class Detalle_Servicio {
+  @Table(name = "detalle_servicio")
+  public class Detalle_Servicio {
   
   @Id
   

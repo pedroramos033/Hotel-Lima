@@ -36,18 +36,21 @@ public class ServicioService implements IservicioService{
 		data.deleteById(Id_servicio);
 	}
 
+	@SuppressWarnings("null")
 	@Override
-	public Servicio obtenerServicioPorId(int Id_servicio) {
+	public double obtenerServicioPorId(int Id_servicio) {
 		 Optional<Servicio> servicioOptional = listarId(Id_servicio);
 		    
 		    // Manejar la posibilidad de que el servicio no exista
 		    if (servicioOptional.isPresent()) {
-		        return servicioOptional.get();
+		        return servicioOptional.get().getPrecio();
 		    } else {
 		        // Manejar el caso en que el servicio no existe (lanzar una excepción o devolver null, según tu lógica)
-		        return null;
+		        return (Double) null;
 		    }
 	}
+
+	
 
 	
   

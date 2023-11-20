@@ -10,17 +10,20 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.hotel.demo.interfacesService.IdetalleServicioService;
 import com.hotel.demo.interfacesService.IempleadoService;
 import com.hotel.demo.interfacesService.IhabitacionService;
 import com.hotel.demo.interfacesService.IhuespedService;
 import com.hotel.demo.interfacesService.IreservaService;
 import com.hotel.demo.interfacesService.IservicioService;
-
+import com.hotel.demo.modelo.Detalle_Servicio;
 import com.hotel.demo.modelo.Empleado;
 import com.hotel.demo.modelo.Habitacion;
 import com.hotel.demo.modelo.Huesped;
 import com.hotel.demo.modelo.Reserva;
 import com.hotel.demo.modelo.Servicio;
+
+
 
 @Controller
 @RequestMapping
@@ -35,6 +38,8 @@ public class ControladorReserva {
 	private IhabitacionService serviceHa;
 	@Autowired
 	private IhuespedService serviceHu;
+	
+	
 	@GetMapping("/listarReserva")
 	public String listar(Model model) {
 		List<Reserva>reservas = service.listarReserva();
@@ -55,11 +60,25 @@ public class ControladorReserva {
 		
 		return "NuevaReserva";
 	}
-	@PostMapping("/saveReserva")
-	public String guardar(@Validated Reserva r, Model model) {    
+	@GetMapping("/newReservaRCliente")
+	public String agregarRCliente(Model model) {
+		List<Habitacion>habitaciones = serviceHa.listar();
+		List<Huesped>huespeds = serviceHu.listarHuesped();
+			
+		List<Servicio>servicios = serviceS.listarServicio();
+		model.addAttribute("habitaciones",habitaciones);
+		model.addAttribute("huespeds",huespeds);
+	
+		model.addAttribute("servicios", servicios);
+		model.addAttribute("reserva",new Reserva());
 		
-		service.Guardar(r);
-		return "redirect:/listarReserva";
+		return "NuevaReservaCliente";
+	}
+	@PostMapping("/saveReserva")
+	public String guardar(@Validated Reserva r, Model model) {   
+		
+	    service.crearReservaConDetalle(r);
+	    return "redirect:/listarReserva";
 	}
 	@GetMapping("/editarReserva/{Nro_reserva}")
 	public String editar(@PathVariable int Nro_reserva, Model model) {
@@ -90,4 +109,6 @@ public class ControladorReserva {
 		
 		return "index";
 	}
+	
+
 }
