@@ -65,8 +65,10 @@ public class ControladorDetalleReserva {
 	
 	@GetMapping("/editarDetalleReserva/{Id_detreserva}")
 	public String editar(@PathVariable int Id_detreserva, Model model) {
-		Optional<Detalle_Reserva>detreserva=serviceDR.listarId(Id_detreserva);				
+		Optional<Detalle_Reserva>detreserva=serviceDR.listarId(Id_detreserva);	
+		List<Habitacion>habitaciones = ServiceH.listar();
 		List<Reserva>reservas = serviceR.listarReserva();			
+		model.addAttribute("habitaciones",habitaciones);
 		model.addAttribute("reservas", reservas);
 		model.addAttribute("detreserva", detreserva);
 		return "NuevoDetalleReserva";

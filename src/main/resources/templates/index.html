@@ -40,9 +40,9 @@
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a class="active" href="index.html">home</a></li>
-                                        <li><a href="rooms.html">rooms</a></li>
-                                        <li><a href="about.html">About</a></li>
+                                        <li><a class="active" href="/index">Hotel Lima</a></li>
+                                        <li><a href="rooms.html">Habitaciones</a></li>
+                                        <li><a href="about.html">Acerca de Nosotros</a></li>
                                         <li><a href="#">blog <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
                                                 <li><a href="blog.html">blog</a></li>
@@ -54,14 +54,14 @@
                                                 <li><a href="elements.html">elements</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a class="nav-link" href="/contact">Contact</a></li>
                                     </ul>
                                 </nav>
                             </div>
                         </div>
                         <div class="col-xl-2 col-lg-2">
                             <div class="logo-img">
-                                <a href="index.html">
+                                <a href="/index">
                                     <img src="img/logo.jpg" alt="">
                                 </a>
                             </div>
@@ -88,7 +88,7 @@
                                     </ul>
                                 </div>
                                 <div class="book_btn d-none d-lg-block">
-                                    <a class="nav-link" href="/index1">Reservar Ahora</a>
+                                    <a class="nav-link" href="/Login">Reservar Ahora</a>
                                 </div>
                             </div>
                         </div>
@@ -607,6 +607,12 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
         });
     </script>
+    <script>
+    // Agrega un evento clic al botón para redirigir a la página de login
+    document.getElementById("btnMostrarLogin").addEventListener("click", function() {
+      window.location.href = "/Login";  // Reemplaza "/ruta-a-tu-pagina-de-login" con la ruta real
+    });
+  </script>
 
 
 

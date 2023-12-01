@@ -18,10 +18,10 @@
 </head>
 <body>
     <div class="container mt-4">
-        <h2 class="text-center mb-4">Lista de Reservas</h2>
+        <h2 class="text-center mb-4">Lista de Pagos Realizados</h2>
         <div class="text-end">
              
-             <a th:href="@{/newRegistro_Pago}" class="btn btn-primary">Registro Pago</a>       
+             <a th:href="@{/newRegistro_Pago}" class="btn btn-success">Registrar Pago</a>       
         </div>
         <table class="table table-striped">
             <thead class="thead-dark">
@@ -47,7 +47,7 @@
                         <a th:href="@{/editarRegistroPago/}+${registro.id_pago}" class="btn btn-warning">
                             <i class="bi bi-pencil"></i>
                         </a>
-                        <a th:href="@{/eliminarRegistroPago/}+${registro.id_pago}" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar este servicio?')">
+                        <a th:href="@{/eliminarRegistroPago/}+${registro.id_pago}" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar este registro?')">
                             <i class="bi bi-trash"></i>
                         </a>                       
                     </td>

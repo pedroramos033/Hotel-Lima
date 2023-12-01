@@ -17,7 +17,7 @@
 			<form th:action="@{/saveRegistroPago}" th:object=${registro} method="POST">
 				<div class="card">
 					<div class="card-header">
-						<H3>Modulo Reserva</H3>
+						<H3>Modulo Pagos</H3>
 					</div>
 					<div class="card-body"></div>
 					<div class="form-group">
@@ -61,6 +61,7 @@
 					<div class="form-group">
 						<label>Monto Total</label>
 						<input th:field="*{monto}" id="monto_total" type="text" class="form-control" readonly="readonly" />
+						
 					</div>
 					<div class="form-group">
 						<!-- Agrega el botón Calcular que ejecutará la función calcular() en JavaScript -->
@@ -69,22 +70,26 @@
 					<div class="card-footer">
 						<input type="submit" value="Guardar" class="btn btn-success"
 							onclick="alert('Se Guardó Correctamente')" />
-						<a th:href="@{/listarRegistroPago}" class="btn btn-primary">Regresar</a>
+						<a th:href="@{/listarReserva}" class="btn btn-primary">Regresar</a>
 					</div>		
 					
 					<script>
     // Función en JavaScript para realizar el cálculo
     function calcular() {
-        // Obtiene los valores del formulario
+        // Obtiene los valores del formulario}
+        var message ="";
         var precioHabitacion = parseFloat(document.getElementById('precio_habi').value);
         var precioServicio = parseFloat(document.getElementById('precio').value);
         var cantidadDias = parseInt(document.getElementById('cant_dias').value);
-
+		if (precioHabitacion,precioServicio, cantidadDias == null){
+			return message="Ingrese todos los campos";
+		}
+		else{
         // Realiza el cálculo
         var montoTotal = (precioHabitacion + precioServicio) * cantidadDias;
 
         // Muestra el resultado en el campo de monto_total
-        document.getElementById('monto_total').value = montoTotal.toFixed(2);
+        document.getElementById('monto_total').value = montoTotal.toFixed(2);}
     }
 </script>		
 					

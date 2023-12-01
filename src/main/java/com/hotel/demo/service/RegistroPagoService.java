@@ -1,6 +1,7 @@
 package com.hotel.demo.service;
 import java.util.List;
 import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,10 +9,8 @@ import com.hotel.demo.interfaces.IRegistroPago;
 import com.hotel.demo.interfacesService.IregistroPagoService;
 import com.hotel.demo.interfacesService.IreservaService;
 import com.hotel.demo.interfacesService.IservicioService;
-import com.hotel.demo.modelo.Detalle_Reserva;
 import com.hotel.demo.modelo.Registro_Pago;
 import com.hotel.demo.modelo.Reserva;
-import com.hotel.demo.modelo.Servicio;
 @Service
 public class RegistroPagoService implements IregistroPagoService{
 	@Autowired
@@ -83,6 +82,14 @@ public class RegistroPagoService implements IregistroPagoService{
 	public Registro_Pago GuardarDR(Registro_Pago rp) {
 		Registro_Pago registrop = data.save(rp);
 	    return registrop;
+	}
+
+	public IservicioService getServiceS() {
+		return serviceS;
+	}
+
+	public void setServiceS(IservicioService serviceS) {
+		this.serviceS = serviceS;
 	}
 
 

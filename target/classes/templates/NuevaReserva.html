@@ -5,13 +5,15 @@
 <title>Insert title here</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
+
+
 <body>
 	<div class="container mx-auto mt-4">
         <div class="col-sm-6 text-center mx-auto">
 			<form th:action="@{/saveReserva}" th:object=${reserva} method="POST">
 				<div class="card">
 					<div class="card-header">
-						<H3>Registro Pago</H3>
+						<H3>Registrar Reserva</H3>
 					</div>
 					<div class="card-body"></div>	
 					<div class="form-group">
@@ -31,9 +33,15 @@
 							<input th:field="*{cant_dias}" type="text" class="form-control"/>
 						</div>
 						<div class="form-group">
-						<label>Nro Habitacion</label>
-						<select th:field="*{nro_habi}" class="form-control">
-							<option th:each="habitacion : ${habitaciones}" th:value="${habitacion.nro_habi}" th:text="${habitacion.descripcion}">Numero de Habitacion</option>
+						<label>Tipo de Habitacion</label>
+						<select id="tipoHabitacion" th:field="*{nro_habi}" class="form-control">
+							<option th:each="habitacion : ${habitaciones}" th:value="${habitacion.nro_habi}" th:text="${habitacion.descripcion}">Tipo de Habitacion</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label>Número de Habitacion</label>
+						<select id="numeroHabitacion" th:field="*{nro_habi}" class="form-control">
+							<option th:each="habitacion : ${habitaciones}" th:value="${habitacion.nro_habi}" th:text="${habitacion.nro_habi}">Numero de Habitacion</option>
 						</select>
 					</div>
 					<div class="form-group">
@@ -60,11 +68,42 @@
 						</div>
 					<div class="card-footer">
    					 <input type="submit" value="Guardar" class="btn btn-success" onclick="alert('Se Guardó Correctamente')"/>
-    					<a th:href="@{/listarServicio}" class="btn btn-primary">Regresar</a>
+    					<a th:href="@{/listarReserva}" class="btn btn-primary">Regresar</a>
 					</div>
 				</div>
 			</form>
 		</div>
 	</div>
+	
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Al cambiar el tipo de habitación
+        $('#tipoHabitacion').change(function () {
+            var tipoSeleccionado = $(this).val();
+
+            // Realiza una solicitud Ajax al servidor para obtener habitaciones filtradas
+            $.ajax({
+                type: 'GET',
+                url: '/obtenerHabitacionesPorTipo?tipo=' + tipoSeleccionado,  // Ajusta la URL según tu backend
+                success: function (habitacionesFiltradas) {
+                    // Actualiza el segundo select con los números de habitación filtrados
+                    $('#numeroHabitacion').empty();
+                    $.each(habitacionesFiltradas, function (index, habitacion) {
+                        $('#numeroHabitacion').append($('<option>', {
+                            value: habitacion.nro_habi,
+                            text: habitacion.nro_habi
+                        }));
+                    });
+                },
+                error: function (error) {
+                    console.error('Error al obtener habitaciones filtradas:', error);
+                }
+            });
+        });
+        });
+</script>
 </body>
 </html>
+
+

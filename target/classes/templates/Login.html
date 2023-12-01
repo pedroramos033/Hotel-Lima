@@ -4,64 +4,79 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Registro de Usuarios</title>
+  <title>Ingreso de Usuarios</title>
   <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
   <link rel="stylesheet" th:href="@{css/style.css}">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #f5f5f5; /* Color blanco perla */
+      background-image: url('img/rooms/2.png'); /* Ruta de la imagen */
+      background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el fondo */
+      background-position: center; /* Centra la imagen */
+      background-repeat: no-repeat;
+    }
+
+    #container {
+      max-width: 600px; /* Ajusta el ancho máximo según tu preferencia */
+      width: 100%;
+    }
+
+    .form-container {
+      background-color: #fff; /* Color blanco para el contenedor del formulario */
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1{
+		color: black;
+		font-family: Impact, 'Arial Narrow Bold', sans-serif;
+	}
+
+    .text-center-align {
+      text-align: center;
+    }
+    
+    #submitButton{
+		size: 20px;
+	}
+  </style>
 </head>
 <body>
-  <div class="container" id="container">
-
-	<div class="form-container register-container" th:if=${param.exito}>
-		<div class="alert alert-info">Se ha registrado exitosamente a
-			la aplicación</div>
-		<form th:action="@{/registro}" method="post" th:object="${usuario}">
-			<h1>Register hire.</h1>
-			<div class="form-group">
-				<label class="control-label" for="apellido">Nombre: </label>
-				<input id="nombre" type="text" class="form-control" th:field="*{nombre}" required autofocus="autofocus">
-			</div>
-			<div class="form-group">
-				<label class="control-label" for="apellido">Apellido : </label> 
-				<input id="apellido" class="form-control" th:field="*{apellido}" required autofocus="autofocus">
-			</div>
-	
-			<div class="form-group">
-				<label class="control-label" for="email">Email : </label> 
-				<input id="email" type="email" class="form-control" th:field="*{email}" required autofocus="autofocus">
-			</div>
-	
-			<div class="form-group">
-				<label class="control-label" for="password">Password : </label> 
-				<input type="password" id="password" class="form-control" th:field="*{password}" required autofocus="autofocus">
-			</div>
-			<div class="form-group">
-				<button type="submit" class="btn btn-success">Registrar</button>
-			</div>button>Register</button>
-        <span>Si estas registrado usa tu cuenta</span>
-        <div class="social-container">
-          <a href="#" class="social"><i class="lni lni-facebook-fill"></i></a>
-          <a href="#" class="social"><i class="lni lni-google"></i></a>
-          <a href="#" class="social"><i class="lni lni-linkedin-original"></i></a>
-        </div>
-      </form>
-    </div>
-
+  <div id="container">
+                            
+                        
     <div class="form-container login-container">
-      <form action="#">
-        <h1>Login hire.</h1>
-        <input type="email" placeholder="Email">
-        <input type="password" placeholder="Password">
+      <form id="loginForm" th:action="@{/index1}" class="text-center-align">
+		 <div class="logo-img">
+              <a href="/index">
+               <img src="img/logo.jpg" alt="">
+             </a>
+          </div>
+        <h1>Ingresa a tu cuenta.</h1>
+        <input type="email" name="username" placeholder="Email">
+        <input type="password" name="password" placeholder="Password">
         <div class="content">
           <div class="checkbox">
             <input type="checkbox" name="checkbox" id="checkbox">
-            <label>Remember me</label>
+            <label>Recordarme</label>
           </div>
+          <br>
           <div class="pass-link">
-            <a href="#">Forgot password?</a>
+            <a href="#">¿Olvidaste tu contraseña?</a>
           </div>
+          <br>
         </div>
-        <button>Login</button>
-        <span>or use your account</span>
+        <input type="submit" class="btn btn-warning" value="Ingresar" id="submitButton" disabled style="width: 150px; height: 40px;" size="50px">
+        <br>
+        <span>o usa tu cuenta de:</span>
+        <br>
         <div class="social-container">
           <a href="#" class="social"><i class="lni lni-facebook-fill"></i></a>
           <a href="#" class="social"><i class="lni lni-google"></i></a>
@@ -69,41 +84,31 @@
         </div>
       </form>
     </div>
-
-    <div class="overlay-container">
-      <div class="overlay">
-        <div class="overlay-panel overlay-left">
-          <h1 class="title">Hello <br> friends</h1>
-          <p>if Yout have an account, login here and have fun</p>
-          <button class="ghost" id="login">Login
-            <i class="lni lni-arrow-left login"></i>
-          </button>
-        </div>
-        <div class="overlay-panel overlay-right">
-          <h1 class="title">Start yout <br> journy now</h1>
-          <p>if you don't have an account yet, join us and start your journey.</p>
-          <button class="ghost" id="register">Register
-            <i class="lni lni-arrow-right register"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
   </div>
-
+  
   <script>
-	  const registerButton = document.getElementById("register");
-const loginButton = document.getElementById("login");
-const container = document.getElementById("container");
+    var loginForm = document.getElementById("loginForm");
+    var usernameInput = loginForm.querySelector('input[name="username"]');
+    var passwordInput = loginForm.querySelector('input[name="password"]');
+    var submitButton = loginForm.querySelector('input[type="submit"]');
 
-registerButton.addEventListener("click", () => {
-  container.classList.add("right-panel-active");
-});
+    usernameInput.addEventListener("input", validateInputs);
+    passwordInput.addEventListener("input", validateInputs);
 
-loginButton.addEventListener("click", () => {
-  container.classList.remove("right-panel-active");
-});
-  </script>
+    function validateInputs() {
+        var usernameFilled = usernameInput.value.trim() !== "";
+        var passwordFilled = passwordInput.value.trim() !== "";
+        var isValidEmail = validateEmail(usernameInput.value.trim());
+        var isValidPassword = passwordInput.value.trim().length >= 5;
 
+        submitButton.disabled = !(usernameFilled && passwordFilled && isValidEmail && isValidPassword);
+    }
+
+    // Función para validar la estructura del correo electrónico
+    function validateEmail(email) {
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+</script>
 </body>
 </html>

@@ -34,6 +34,14 @@
 	iframe {
     flex: 1;
 }
+
+	Body{
+	  background-color: #f5f5f5; /* Color blanco perla */
+      background-image: url('img/rooms/2.png'); /* Ruta de la imagen */
+      background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el fondo */
+      background-position: center; /* Centra la imagen */
+      background-repeat: no-repeat;
+	}
    </style>
 </head>
 <body>
@@ -48,7 +56,7 @@
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a class="active" href="/index">home</a></li>
+                                        <li><a class="active" href="/index">Principal</a></li>
                                         <li><a href="#">Reserva <i class="ti-angle-down"></i></a>
 											<ul class="submenu">
                                                 <li><a href="/listarReserva" target="miContenedor">Reserva</a></li>
@@ -57,19 +65,20 @@
                                         </li>
                                           
                                          <li><a href="/listarRegistroPago" target="miContenedor">Registrar Pago</a></li>                                       
-                                        <li><a href="#">Mantenimiento <i class="ti-angle-down"></i></a>
+                                       
+                                       <li><a href="#">Detalle <i class="ti-angle-down"></i></a>
+											<ul class="submenu">
+                                                <li><a href="/listarDetalleServicio" target="miContenedor"> Detalle Servicio</a></li>
+                                        		<li><a href="/listarDetalleReserva" target="miContenedor"> Detalle Reserva</a></li>
+                                            </ul>
+                                        </li>
+                                         <li><a href="#">Mantenimiento <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
                                                 <li><a href="/listarHabitacion" target="miContenedor">Habitaciones</a></li>
                                         		<li><a href="/listarHuesped" target="miContenedor">Huesped</a></li>
                                         		<li><a href="/listarEmpleado" target="miContenedor">Empleado</a></li>
                                         		<li><a href="/listarServicio" target="miContenedor">Servicios</a></li>
                                         		
-                                            </ul>
-                                        </li>
-                                       <li><a href="#">Detalle <i class="ti-angle-down"></i></a>
-											<ul class="submenu">
-                                                <li><a href="/listarDetalleServicio" target="miContenedor"> Detalle Servicio</a></li>
-                                        		<li><a href="/listarDetalleReserva" target="miContenedor"> Detalle Reserva</a></li>
                                             </ul>
                                         </li>
                                         <li><a href="contact.html">Contact</a></li>
@@ -79,7 +88,7 @@
                         </div>
                         <div class="col-xl-2 col-lg-2">
                             <div class="logo-img">
-                                <a href="index.html">
+                                <a href="/index">
                                     <img src="img/logo.jpg" alt="">
                                 </a>
                             </div>
